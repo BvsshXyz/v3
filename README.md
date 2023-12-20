@@ -2,10 +2,10 @@
 <img src="https://readme-typing-svg.herokuapp.com?color=%2336BCF7&center=true&vCenter=true&lines=S+C+R+I+P+T+ㅤ+B+Y+ㅤ+Bayu+V+P+N" />
 </p>
 
-#STEP 1
+#"STEP 1"
 <code><pre>apt update && apt upgrade</code></pre>
 
-#STEP 2
+#"STEP 2"
 <code><pre>sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip && wget https://raw.githubusercontent.com/BvsshXyz/v3/main/bayu.sh && chmod +x bayu.sh && sed -i -e 's/\r$//' bayu.sh && screen -S bayu ./bayu.sh</code></pre>
 
 ### TESTED ON OS
