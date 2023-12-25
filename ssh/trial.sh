@@ -9,6 +9,9 @@ export KEY="6208481608:AAH8H8-a6DmjXZOJBm_6IJsdfZJ1nTakxJ8"
 export TIME="10"
 export URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+CITY=$(curl -s ipinfo.io/city )
+clear
 sldomain=$(cat /root/nsdomain)
 cdndomain=$(cat /root/awscdndomain)
 slkey=$(cat /etc/slowdns/server.pub)
@@ -41,7 +44,7 @@ clear
 echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
 echo -e " Set Expired In Minutes           "
 echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
-read -p "Menit : " pup
+read -p " Menit : " pup
 hari="1"
 Pass=1
 tgl=$(date -d "$masaaktif days" +"%d")
@@ -58,9 +61,14 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
-EMD
+
 echo userdel -f "$Login" | at now + $pup minutes
 echo "tunnel ssh ${Login}" | at now +$pup minutes &> /dev/null
+KEY="$KEY"
+TIME="$TIME"
+URL="$URL"
+clear
+curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 clear
 if [[ ! -z "${PID}" ]]; then
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
@@ -95,7 +103,6 @@ GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]
 " | tee -a /etc/log-create-user.log
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 
-else
 END
 echo userdel -f "$Login" | at now + $pup minutes
 echo "tunnel ssh ${Login}" | at now +$pup minutes &> /dev/null
