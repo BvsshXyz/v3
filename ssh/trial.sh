@@ -41,7 +41,7 @@ clear
 echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
 echo -e " Set Expired In Minutes           "
 echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m"
-read -p " Menit : " pup
+read -p "Menit : " pup
 hari="1"
 Pass=1
 tgl=$(date -d "$masaaktif days" +"%d")
@@ -58,7 +58,7 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
-
+EMD
 echo userdel -f "$Login" | at now + $pup minutes
 echo "tunnel ssh ${Login}" | at now +$pup minutes &> /dev/null
 clear
@@ -68,7 +68,7 @@ echo -e "\E[40;1;37m        𝗔𝗖𝗖𝗢𝗨𝗡𝗧 𝗜𝗡𝗙𝗢𝗥�
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Username    : $Login" | tee -a /etc/log-create-user.log
 echo -e "Password    : $Pass" | tee -a /etc/log-create-user.log
-echo -e "Expired On  : $exp" | tee -a /etc/log-create-user.log
+echo -e "Expired On  : $pup menit" | tee -a /etc/log-create-user.log
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "\E[40;1;37m         𝗦𝗘𝗥𝗩𝗘𝗥 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡      \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
